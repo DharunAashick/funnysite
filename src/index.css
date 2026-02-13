@@ -1,0 +1,82 @@
+:root {
+  font-family: 'Outfit', sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  --primary-color: #ff4757;
+  --secondary-color: #2f3542;
+  --bg-color: #ffe2e2;
+  --card-bg: rgba(255, 255, 255, 0.65);
+  --glass-border: rgba(255, 255, 255, 0.8);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
+  background-color: #ffe2e2;
+  background-image: linear-gradient(315deg, #ffe2e2 0%, #ffc7c7 74%);
+  overflow: hidden;
+  color: var(--secondary-color);
+}
+
+#root {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 10;
+}
+
+/* Floating Hearts Background */
+.hearts-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.heart {
+  position: absolute;
+  bottom: -100px;
+  /* width and height not strictly needed for text but good for centering */
+  display: inline-block;
+  margin: 0 10px;
+  animation: float 15s infinite linear;
+  /* Removed clip-path and background-color to use emoji */
+  font-size: 24px;
+  /* Default base size */
+  opacity: 0.7;
+}
+
+/* Using emoji or character for simplicity in pure CSS if needed, but better to do in JSX. 
+   Here I will just define animations. */
+
+@keyframes float {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 1;
+    border-radius: 0;
+  }
+
+  100% {
+    transform: translateY(-1000px) rotate(720deg);
+    opacity: 0;
+    border-radius: 50%;
+  }
+}
